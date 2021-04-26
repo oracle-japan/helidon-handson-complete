@@ -1,4 +1,4 @@
-# 2021/4/15実施 Oracle Cloudウェビナーのデモアプリケーション兼helidonハンズオンコンテンツ
+# helidonハンズオンコンテンツ
 
 ## Helidon MPとJPA/JTAを利用したRESTサービスの実装
 
