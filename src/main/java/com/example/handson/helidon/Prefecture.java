@@ -1,28 +1,25 @@
 package com.example.handson.helidon;
 
-import javax.json.bind.annotation.JsonbTransient;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Access;
+import jakarta.persistence.AccessType;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity(name = "Prefecture")
 @Table(name = "PREFECTURE")
 @Access(AccessType.PROPERTY)
 @NamedQueries({
-    @NamedQuery(name = "getPrefectures",
-                query = "SELECT p FROM Prefecture p"),
-    @NamedQuery(name = "getPrefectureById",
-                query = "SELECT p FROM Prefecture p WHERE p.id = :id"),
-    @NamedQuery(name = "getPrefectureByName",
-                query = "SELECT p FROM Prefecture p WHERE p.name = :name")
+        @NamedQuery(name = "getPrefectures", query = "SELECT p FROM Prefecture p"),
+        @NamedQuery(name = "getPrefectureById", query = "SELECT p FROM Prefecture p WHERE p.id = :id"),
+        @NamedQuery(name = "getPrefectureByName", query = "SELECT p FROM Prefecture p WHERE p.name = :name")
 })
 public class Prefecture {
 
@@ -30,7 +27,7 @@ public class Prefecture {
 
     private String name;
 
-    @JsonbTransient
+    @JsonIgnore
     private PrefectureArea prefectureArea;
 
     private String area;
@@ -73,5 +70,5 @@ public class Prefecture {
     public void setArea(String area) {
         this.area = area;
     }
-    
+
 }
